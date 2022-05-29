@@ -2,6 +2,8 @@ package lesson11;
 
 import lesson11.Author;
 
+import java.util.Objects;
+
 public class Book {
         private String namebook;
         private int publicationYear;
@@ -36,5 +38,18 @@ public class Book {
         public String toString() {
             return "Название книги: " + getNamebook() + ", " + "Год публикации: " + getPublicationYear() + ", " + "Автор: " + getAuthor();
 
-    }
+        }
+
+        public boolean equals(Object x) {
+            if (this.getClass() != x.getClass()) {
+            return false;
+            }
+            Book lor = (Book) x;
+            return namebook.equals(lor.namebook);
+
+        }
+
+        public int hashCode() {
+        return Objects.hash(namebook);
+        }
 }
